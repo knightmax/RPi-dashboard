@@ -15,6 +15,11 @@ var app = express();
 var server = require('http').createServer(app);  
 var io = require('socket.io')(server);
 
+var fs = require('fs'),
+	sys = require('util'),
+	exec = require('child_process').exec,
+	child, child1;
+
 app.use(express.static(__dirname + '/public'));  
 app.get('/', function(req, res,next) {  
     res.sendFile(__dirname + '/views/index.html');
